@@ -28,3 +28,25 @@ class CoinChanger:
             answer.append(1)
             difference = difference - 1
         return answer
+
+class Multiples:
+    def divide(self, n1, n2):
+        return n1 / n2
+
+    def multiples_of_three_and_five_below(self, n):
+        number = 1
+        answers = []
+        while number < n:
+            if self.is_multiple_of_three(number) or self.is_multiple_of_five(number):
+                answers.append(number)
+            number = number + 1
+        return answers
+
+    def is_multiple_of_three(self, n):
+        return n % 3 == 0
+
+    def is_multiple_of_five(self, n):
+        return n % 5 == 0
+
+    def sum_multiples_of_three_and_five_below(self, n):
+        return sum(self.multiples_of_three_and_five_below(n))
