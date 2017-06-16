@@ -1,6 +1,6 @@
 import unittest
 
-from src.example import Calculator, CoinChanger
+from src.example import Calculator, CoinChanger, Multiples
 
 
 class CalculatorTest(unittest.TestCase):
@@ -54,3 +54,38 @@ class CoinChangerTest(unittest.TestCase):
     def test_does_complex_stuff(self):
         coin_changer = CoinChanger()
         self.assertEqual([25, 25, 10, 5, 1, 1], coin_changer.make_change(100, 33))
+
+
+class MultiplesTest(unittest.TestCase):
+
+    def test_multiple_of_three(self):
+        multiples = Multiples()
+        self.assertEqual(4, multiples.divide(12, 3))
+
+    def test_is_divisible_by_three_for_true(self):
+        multiples = Multiples()
+        self.assertTrue(multiples.is_multiple_of_three(3))
+
+    def test_is_divisible_by_three_for_false(self):
+        multiples = Multiples()
+        self.assertFalse(multiples.is_multiple_of_three(4))
+
+    def test_get_multiples_of_three_and_five_below(self):
+        multiples = Multiples()
+        self.assertEqual([], multiples.multiples_of_three_and_five_below(3))
+
+    def test_gets_multiples_below_ten(self):
+        random = Multiples()
+        self.assertEqual([3, 5, 6, 9], random.multiples_of_three_and_five_below(10))
+
+    def test_less_than_ten(self):
+        is_less_than_ten = Multiples()
+        self.assertTrue(is_less_than_ten.is_multiple_of_three(12))
+
+    def test_sum_multiples_of_three_and_five_below(self):
+        multiples = Multiples()
+        self.assertEqual(23, multiples.sum_multiples_of_three_and_five_below(10))
+
+    def test_the_answer(self):
+        multiples = Multiples()
+        self.assertEqual(23, multiples.sum_multiples_of_three_and_five_below(1000))
